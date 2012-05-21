@@ -1,6 +1,8 @@
 <header>
-	<% logo = image_tag("logo.png", :alt => "Sample App", :class => "round") %> 
+
 	<%= link_to logo, root_path %>
+	<!--<% logo = image_tag("logo.png", :alt => "Sample App", :class => "round") %> this is now in the application helper-->
+	
 	<!-- 
 	this is a rails helper called image_tag, in this case setting the alt and class attributes of the image tag.  
 	The HTML this tag produces is:
