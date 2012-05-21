@@ -1,0 +1,21 @@
+<header>
+	<% logo = image_tag("logo.png", :alt => "Sample App", :class => "round") %> 
+	<%= link_to logo, root_path %>
+	<!-- 
+	this is a rails helper called image_tag, in this case setting the alt and class attributes of the image tag.  
+	The HTML this tag produces is:
+	<img alt="Sample App" class="round" src="/images/logo.png" />
+	The alt attribute is what will be displayed if there is no image
+	-->
+	<nav class="round">
+		<ul>
+			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "Help", help_path %></li>
+			<li><%= link_to "Sign in", '#' %></li>
+			<!--
+			This list uses the rails helper link_to to create links; 
+			the 1st argument is the link text, while the 2nd is the URL
+			-->
+		</ul>
+	</nav>
+</header>

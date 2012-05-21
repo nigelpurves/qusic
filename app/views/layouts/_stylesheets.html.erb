@@ -1,0 +1,12 @@
+<!--some browsers don't yet support html5 so the below javascript "html5 shiv" works around this issue; lt = less than-->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+<%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+
+<!--the below stylesheet also only gets used if the browser is IE8-->
+<!--[if lt IE8]><%= stylesheet_link_tag 'blueprint/ie' %>[endif]-->
+
+<%= stylesheet_link_tag 'custom', :media => 'screen' %>
