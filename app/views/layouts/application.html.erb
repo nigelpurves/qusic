@@ -1,10 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- rails uses html5 by default, as indicated by this doctype-->
 <html>
 	<head>
-		<title>Ruby on Rails Tutorial Sample App | <%= @title %></title>
+		<title><%= title %></title>
 		<%= csrf_meta_tag %>
+		<%= render 'layouts/stylesheets' %>
+		<!-- render is a rails helper to allow us to get the long code out of this doc by looking for a partial-->
+		
 	</head>
 	<body>
-		<%= yield %>
+		<div class="container"> <!--this container div is needed by CSS Blueprint, see the Bluprint tutorial-->
+			<%= render 'layouts/header' %>
+			<section class="round"><!--this section element contains the site's main content-->
+				<%= yield %>
+			</section>
+			<%= render 'layouts/footer'%>
+		</div>
 	</body>
 </html>

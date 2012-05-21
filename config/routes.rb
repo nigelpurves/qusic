@@ -1,7 +1,10 @@
 SampleApp::Application.routes.draw do
-  get "pages/home"
-  get "pages/contact"
-  get "pages/about"
+  root :to => 'pages#home'
+# we could do the same as the below for the homepage, but this is unnecessary as Rails has special instructions for the root URL
+  match 'contact', :to => 'pages#contact'   # matches '/contact' & routes it to the contact action in the Pages controller. match '/contact' also automatically creates named routes for use in the controllers & views (eg, contact_path => '/contact')
+  match '/about',  :to => 'pages#about'
+  match '/help',   :to => 'pages#help'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
