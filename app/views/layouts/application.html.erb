@@ -9,8 +9,11 @@
 	</head>
 	<body>
 		<div class="container"> <!--this container div is needed by CSS Blueprint, see the Bluprint tutorial-->
-			<%= render 'layouts/header' %>
-			<section class="round"><!--this section element contains the site's main content-->
+			<%= render 'layouts/header' %> <!--this renders our standard header from the layouts-->
+			<section class="round"> <!--this section element contains the site's main content-->
+				<% flash.each do |key, value| %>
+					<div class="flash <%= key %>"><%= value %></div>
+				<% end %>
 				<%= yield %>
 			</section>
 			<%= render 'layouts/footer'%>
