@@ -1,10 +1,10 @@
 SampleApp::Application.routes.draw do
   resources :users
-  
-  # originally get "users/new" was used here 
+  resources :sessions, :only => [:new, :create, :destroy]
 
   match '/signup',  :to => 'users#new'
-  
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
   match '/contact', :to => 'pages#contact'   # matches '/contact' & routes it to the contact action in the Pages controller. match '/contact' also automatically creates named routes for use in the controllers & views (eg, contact_path => '/contact')
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'

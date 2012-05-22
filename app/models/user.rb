@@ -27,6 +27,41 @@ class User < ActiveRecord::Base
     return user if user.has_password?(submitted_password)
   end
   
+  def self.authenticate_with_salt(id, cookie_salt)
+    user = find_by_id(id)                             # authenticate_with_salt first finds the user by unique id...
+    (user && user.salt == cookie_salt) ? user : nil   # ...then verifies that the salt stored in the cookie is the correct one for that user
+  end
+  
+  # the code immediately above is idiomattically correct, however in functionality terms we could have written something else that more closely mirrors the method above that:
+  # def self.authenticate.with.salt(id, cookie_salt)
+  #   user = find_by_id(id)
+  #   return nil  if user.nil?
+  #   return user if user.salt == cookie_salt
+  # end
+  #
+  # typical code in programming is: 
+  # if boolean? 
+  #   do_one_thing 
+  # else 
+  #   do_something_else 
+  # end
+  #
+  # Ruby, like many languages allows you to shorten this using the ternary operator into:
+  # boolean? ? do_one_thing : do_something_else
+  #
+  # in both cases the method returns the user if user is not nil and the user salt matches the cookie's salt; otherwise it returns nil. 
+  # But the version immediately above is more idiomatically correct so we have used this as the method above
+  #
+  # You can also use the ternary operator to change:
+  # if boolean?
+  #   var = foo
+  # else
+  #   var = bar
+  # end
+  #
+  # into:
+  # var = boolean? ? foo : bar
+  
   private # inside a Ruby class, all methods defined after private are used internally by the object & are not intended for public use.  Note also the extra indentation (not necessary but can be v helpful)
   
     def encrypt_password
