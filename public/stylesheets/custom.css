@@ -200,3 +200,13 @@ Where # is used this styling assigns to the error_explanation CSS id given in th
 	font-size: 12px;
 	list-style: square;
 }
+
+/*index page*/
+
+ul.users {
+	margin-top: 1em;
+}
+
+.users li {
+	list-style: none;
+}

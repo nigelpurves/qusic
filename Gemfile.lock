@@ -38,6 +38,7 @@ GEM
     factory_girl_rails (3.3.0)
       factory_girl (~> 3.3.0)
       railties (>= 3.0.0)
+    faker (0.3.1)
     gravatar_image_tag (0.1.0)
     i18n (0.5.0)
     json (1.7.3)
@@ -95,12 +96,14 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   factory_girl_rails
+  faker (= 0.3.1)
   gravatar_image_tag (= 0.1.0)
   rails (= 3.0.12)
   rspec
@@ -108,3 +111,4 @@ DEPENDENCIES
   spork
   sqlite3-ruby (= 1.2.5)
   webrat
+  will_paginate (= 3.0.pre2)

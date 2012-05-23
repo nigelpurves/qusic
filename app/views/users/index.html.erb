@@ -1,0 +1,9 @@
+<h1>All users</h1>
+	
+	<%= will_paginate %>
+	
+	<ul class="users">
+		<%= render @users %>   <!--here rails infers that @users is a list of User objects-->
+	</ul>
+	
+	<%= will_paginate %>
