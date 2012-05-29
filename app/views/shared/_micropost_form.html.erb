@@ -1,0 +1,14 @@
+<%= form_for @micropost do |f| %>
+	<%= render 'shared/error_messages', :object => f.object %>
+	<div class="field">
+		<%= f.label :artist %><br />
+		<%= f.text_field :artist %>
+	</div>
+	<div class="field">
+		<%= f.label :track %><br />
+		<%= f.text_field :track %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Track" %>
+	</div>
+<% end %>
