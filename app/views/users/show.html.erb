@@ -5,6 +5,9 @@
 				<%= gravatar_for @user %>
 				<%= @user.name %>
 			</h1>
+			<div class="sidebar round">
+				(Tracking <%= @user.microposts.count %> tracks)
+			</div>
 			<% unless @user.microposts.empty? %>
 				<table class="microposts" summary="User microposts">
 					<tr>
@@ -22,11 +25,6 @@
 				</table>
 				<%= will_paginate @microposts %>
 			<% end %>
-		</td>
-		<td class="sidebar round">
-			<strong>Name</strong> <%= @user.name %><br />
-			<strong>URL</strong>  <%= link_to user_path(@user), @user %> <!--user_path(@user) returns the text of the path of the user in question, @user is the address, and link_to makes it a link; for the entire URL of the users' profile the related code user_url(@user) would have worked-->
-			<strong>Tracks</strong> <%= @user.microposts.count %>
 		</td>
 	</tr>
 </table>
