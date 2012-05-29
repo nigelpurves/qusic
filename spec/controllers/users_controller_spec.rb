@@ -85,6 +85,14 @@ describe UsersController do
       get :show, :id => @user
       response.should have_selector("h1>img", :class => "gravatar") # ensures that image tag is inside h1 tag & have_selector can take a :class option to test the CSS class of the element
     end
+    
+    it "should show the user's microposts" do
+      mp1 = Factory(:micropost, :user => @user, :artist => "Artist", :track => "Track")
+      mp2 = Factory(:micropost, :user => @user, :artist => "My favourite band", :track => "My fave song")
+      get :show, :id => @user
+      response.should have_selector("span.content")
+      response.should have_selector("span.content")
+    end
   end
   
   describe "GET 'new'" do
