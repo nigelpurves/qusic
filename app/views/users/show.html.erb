@@ -7,6 +7,17 @@
 			</h1>
 			<% unless @user.microposts.empty? %>
 				<table class="microposts" summary="User microposts">
+					<tr>
+						<td class="micropost">
+							<h3>Artist</h3>
+						</td>
+						<td class="micropost">
+							<h3>Track</h3>
+						</td>
+						<td class="micropost">
+							<h3>Posted</h3>
+						</td>
+					</tr>
 					<%= render @microposts %>
 				</table>
 				<%= will_paginate @microposts %>
